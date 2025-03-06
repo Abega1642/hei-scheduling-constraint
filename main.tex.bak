@@ -148,7 +148,7 @@ $
 \forall \ ac_{i} \in AC, \ i \in I :
 $ \\
 \begin{equation}
-\sum_{d = d_0 }^{d_q}\sum_{r \in R}\sum_{s \in S} {o_{ac_{i}, d, r, s}} = D(ac_{i})
+\sum_{d = d_0 }^{d_q}\sum_{r \in R}\sum_{s \in S} {o_{ac_{i}, d, r, s}} = D(ac_{i}, d_q)
 \end{equation}
 
 
