@@ -59,6 +59,21 @@ $
 \begin{equation}
 2p \left[ \sum_{r\in R}\left(\sum_{ac_{j} \in AC, j \in J}{o_{ac_{j}, d, r, s}}\right)\right] \leq 3p - 1
 \end{equation}
+\\ \\
+\textbf{\textit{\underline{Otherwise :}}}
+if $p$ is the binary variable such as :
+\[
+	p = 
+	\begin{cases}
+		\hspace{0.3cm} 1 \text{ , \quad if the course is presential} \\
+		\hspace{0.3cm}0 \text{ , \quad otherwise}
+	\end{cases} 
+\]	
+let $M \in \mathbb{N}$ be a majoration constant. \\ \\
+Therefore :
+\begin{equation}
+\sum_{r\in R}\left(\sum_{ac_{j} \in AC, j \in J}{o_{ac_{j}, d, r, s}}\right) \leq 1 - M(p - 1)
+\end{equation}
 
 \begin{theorem}
 A teacher cannot simultaneously teach two or more different courses.
@@ -128,12 +143,12 @@ rc_r - \#g_{ac_{i}} \geq 0
 \begin{theorem}
 Finish the total hour of every course.
 \end{theorem}
-Let $D(ac_i, d_q)$ be the total duration of a $ac_i$ within a time interval $\left[d_0, d_i\right] \subset D, \ d_0 \leq d_i$ \\ \\
+Let $D(ac_i, d_q)$ be the total duration of a $ac_i$ within a time interval $\left[d_0, d_q\right] \subset D, \ d_0 \leq d_q$. \\ \\
 $
 \forall \ ac_{i} \in AC, \ i \in I :
 $ \\
 \begin{equation}
-\sum_{d = d_0 }^{d_i}\sum_{r \in R}\sum_{s \in S} {o_{ac_{i}, d, r, s}} = D(ac_{i})
+\sum_{d = d_0 }^{d_q}\sum_{r \in R}\sum_{s \in S} {o_{ac_{i}, d, r, s}} = D(ac_{i})
 \end{equation}
 
 
