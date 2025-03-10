@@ -22,9 +22,9 @@
 	
 	\item Let $t_{ac_{i}}$ and $c_{ac_{i}}$ be the corresponding teacher and the corresponding course resp. to  $ac_{i}$.
 	
-	\item Let $SCT_{t,c} \subset AC$  be the set of all awarded course which has same teacher and course (Same Course and Teacher):
+	\item Let $STC_{t,c} \subset AC$  be the set of all awarded course which has same teacher and course (Same Course and Teacher):
 	$$
-	\forall \ i, j \in \mathbb{N} \ : \ \left(ac_{i}, ac_{j} \in  SCT_{t,c}\right)                            \Longleftrightarrow \left(t_{ac_{i}} = t_{ac_{j}}  = t \right) \text{ and } 
+	\forall \ i, j \in \mathbb{N} \ : \ \left(ac_{i}, ac_{j} \in  STC_{t,c}\right)                            \Longleftrightarrow \left(t_{ac_{i}} = t_{ac_{j}}  = t \right) \text{ and } 
 	\left(c_{ac_{i}} = c_{ac_{j}}  =  c \right)
 	$$ 
 	
@@ -34,47 +34,46 @@
 	\left(c_{ac_{i}} \neq c_{ac_{j}} \right)
 	$$ 
 	
-	\item Let $p_{d, SCT_{t,c}} \in \{-1;1\} $,be a an indicator constant.
-	
-	$$
-	p_{d, SCT_{t,c}} = 
-	\begin{cases}
-		\hspace{0.3cm} 1 \text{ , \quad if all $ac_i$ related to  $SCT_{t,c}$ are presentials at a given day $d$} \\
-		-1 \text{ , \quad otherwise}
-	\end{cases} 
-	$$
-	
 	\item Let $AC_{g} \subset AC$, the set of all awarded course related to a group $g$.
 
 \end{itemize}
-
+\newpage
 \section*{About the Constraints}
 
 \begin{theorem}
 A teacher can't teach two or more different groups at the same time for a same course if it is face-to-face session but can if it is a video conference session.
 \end{theorem}
+Let $p_{d, STC_{t,c}} \in \lbrace -1;1 \rbrace  $,be a an indicator constant.
+	
+	$$
+	p_{d, STC_{t,c}} = 
+	\begin{cases}
+		\hspace{0.3cm} 1 \text{ , \quad if all $ac_i$ related to  $STC_{t,c}$ are presentials at a given $d$ day} \\
+		-1 \text{ , \quad if all $ac_i$ related to  $STC_{t,c}$ are online at a given $d$ day}
+	\end{cases} 
+	$$
 $
 \forall \ s \in S,\ \forall \ d \in D, \ \forall \ t \in T, \ \forall \ c \in C :
 $
 \begin{equation}
-2p_{d, SCT_{t,c}} \cdot \left( \sum_{r\in R}\left(\sum_{ac_{i} \in SCT_{t,c}}{o_{ac_{i}, d, r, s}}\right)\right) \leq 3p_{SCT_{t,c}} - 1
+2p_{d, STC_{t,c}} \cdot \left( \sum_{r\in R}\left(\sum_{ac_{i} \in STC_{t,c}}{o_{ac_{i}, d, r, s}}\right)\right) \leq 3p_{STC_{t,c}} - 1
 \end{equation}
 \\ \\
 \textbf{\textit{\underline{Otherwise :}}}
-if $p_{d, SCT_{t,c}}$ is the binary variable such as :
+if $p_{d, STC_{t,c}}$ is the binary variable such as :
 \[
-	p_{d, SCT_{t,c}} = 
+	p_{d, STC_{t,c}} = 
 	\begin{cases}
-		\hspace{0.3cm} 1 \text{ , \quad if all awarded course related to $SCT_{t,c}$ are presential} \\
-		\hspace{0.3cm}0 \text{ , \quad otherwise}
+		\hspace{0.3cm} 1 \text{ , \quad if all $ac_i$ related to $STC_{t,c}$ are presential ata given $d$ day} \\
+		\hspace{0.3cm}0 \text{ , \quad if all $ac_i$ related to  $STC_{t,c}$ are online at a given $d$ day}
 	\end{cases} 
 \]	
-which marks whether all awarded courses related to $SCT_{t,c}$ are presentials or not. \\
+which marks whether all awarded courses related to $STC_{t,c}$ are presentials or not. \\
 
 Let $M \in \mathbb{N^{*}}$ be a majoration constant. \\ \\
 Therefore :
 \begin{equation}
-\sum_{r\in R}\left(\sum_{ac_{i} \in SCT_{t,c}}{o_{ac_{i}, d, r, s}}\right) \leq 1 + M(1 - p_{SCT_{t,c}})
+\sum_{r\in R}\left(\sum_{ac_{i} \in STC_{t,c}}{o_{ac_{i}, d, r, s}}\right) \leq 1 + M(1 - p_{STC_{t,c}})
 \end{equation}
 
 \begin{theorem}
