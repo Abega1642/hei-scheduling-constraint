@@ -30,16 +30,16 @@
 	
 	\item Let $t(ac_{i})$ and $c(ac_{i})$ be the corresponding teacher and the corresponding course resp. to  $ac_{i}$.
 	
-	\item Let $STC_{t,c} \subset AC$  be the set of all awarded course which has same teacher and course (Same Course and Teacher):
+	\item Let $STC_{t,c} \subset AC$  be the set of all awarded course which has same teacher and course (Same Teacher and Course):
 	$$
 	\forall \ i, j \in \mathbb{N} \ : \ \left(ac_{i}, ac_{j} \in  STC_{t,c}\right)                            \Longleftrightarrow \left[t(ac_{i}) = t(ac_{j})  = t \right] \text{ and } 
 	\left[c(ac_{i}) = c(ac_{j})  =  c \right]
 	$$ 
 	\underline{Example} : \\
 	
-	$t = DrToky$, $c = PROG1$, and $G = \lbrace K1, K2, K3 \rbrace$. So, we have \\
+	$t = DrToky$, $c = PROG1$, and $G = \lbrace K1, K2, K3 \rbrace$. So, we can have \\
 	$
-		STC_{DrToky, PROG1} = \lbrace a_1, a_2 \rbrace	\\
+		STC_{DrToky, PROG1} = \lbrace a_1, a_2, a_3 \rbrace	\\
 	$ 
 	\[
 	\text{where :}
@@ -56,7 +56,7 @@
 	\left[c(ac_{i}) \neq c(ac_{j}) \right]
 	$$ 
 	\underline{Example} : \\
-	$t = DrToky$, and $G = \lbrace K1, K2, K3 \rbrace$. So, we have \\
+	$t = DrToky$, and $G = \lbrace K1, K2, K3 \rbrace$. So, we can have \\
 	$
 		STDC_{DrToky} = \lbrace a_1, a_2, a_3, a_4 \rbrace	\\
 	$ 
@@ -65,7 +65,7 @@
 		\begin{cases}
 			ac_1 = \left(PROG1, Dr Toky, K1\right) \\
 			ac_2 = \left(WEB1, Dr Toky, K1\right) \\
-			ac_3 = \left(DONNEES1, DrToky, K2\right)\\,
+			ac_3 = \left(DONNEES1, DrToky, K2\right)\\
 			ac_4 = \left(PROG2, DrToky, K3\right)
 		\end{cases}
 	\]
@@ -91,7 +91,11 @@ A teacher can't teach two or more different groups at the same time for a same c
 \]	
 
 Let $M \in \mathbb{N^{*}}$ be a constant limiting the number of allowed courses. \\ \\
-Therefore :
+Therefore : \\
+
+$
+\forall \ s \in S,\ \forall \ d \in D, \forall \ t \in T, \ \forall \ c \in C :
+$
 \begin{equation}
 \sum_{r\in R}\left(\sum_{ac_{i} \in STC_{t,c}}{o_{ac_{i}, d, r, s}}\right) \leq 1 + M(1 - pres(d, STC_{t,c}))
 \end{equation}
@@ -268,13 +272,13 @@ $
 \forall \ ac_{i} \in AC:
 $ \\
 \begin{equation}
-2 \cdot \left(\sum_{d = d_{start} }^{d_{end}}\sum_{r \in R}\sum_{s \in S} {o_{ac_{i}, d, r, s}}\right) = D(ac_{i}, d_{end})
+2 \cdot \left(\sum_{d = d_{start} }^{d_{end}}\sum_{r \in R}\sum_{s \in S} {o_{ac_{i}, d, r, s}}\right) = D(ac_{i}, d_{start}, d_{end})
 \end{equation}
 
 \vspace{1cm}\textbf{\underline{Example:}}\vspace{0.3cm} \\ 
 $ac_1 = (PROG1, DrToky, K1)$, $d_{start}$ = 10 march 2025 and $d_{end}$ = 17 march 2025. \\
 
-If we need to have 10 hours of $ac_1$, we have then : $D(ac_1, d_{end}) = 10$. \\
+If we need to have 10 hours of $ac_1$, we have then : $D(ac_1,d_{start}, d_{end}) = 10$. \\
 
 Therefore, we should have :
 
@@ -286,7 +290,7 @@ Therefore, we should have :
 \Longleftrightarrow \quad 
 \sum_{d = d_{start} }^{d_{end}}\sum_{r \in R}\sum_{s \in S} {o_{ac_{1}, d, r, s}} = 5)
 \]
-Which gives us that we should have 5 session of $ac_1$ during the interval of 10 march and 17 march to get those required 10 hours.
+Which gives us that we should have 5 session of $ac_1$ during the interval of 10 march and 17 march to get those required 10 hours since $o_{ac_{1}, d, r, s}$ gives us 2 hours of sessions.
 
 
 \end{document}
