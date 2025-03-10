@@ -235,7 +235,7 @@ $
 Give one day without the same course after a session of this course.
 \end{theorem}
 $
-\forall \ d \in D, \ \forall ac_i \in AC, \ i \in I:
+\forall \ d \in D, \ \forall ac_i \in AC :
 $
 \begin{equation}
 \left(\sum_{r\in R}{\sum_{s \in S}{o_{ac_{i}, d + 1_d, r, s}}}\right) + \left(\sum_{r\in R}{\sum_{s \in S}{o_{ac_{i}, d, r, s}}}\right) \leq 1
