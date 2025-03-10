@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2025.2.12)  10 MAR 2025 11:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2025.2.12)  10 MAR 2025 14:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -130,6 +130,18 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 )
+(/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty
+Package: amsthm 2020/05/29 v2.20.6
+\thm@style=\toks23
+\thm@bodyfont=\toks24
+\thm@headfont=\toks25
+\thm@notefont=\toks26
+\thm@headpunct=\toks27
+\thm@preskip=\skip53
+\thm@postskip=\skip54
+\thm@headsep=\skip55
+\dth@everypar=\toks28
+)
 \c@theorem=\count273
 
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
@@ -140,38 +152,38 @@ File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
 (build/main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 12.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
+LaTeX Font Info:    ... okay on input line 13.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 14.
 
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 12.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 14.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Overfull \hbox (17.23947pt too wide) detected at line 29
+Overfull \hbox (17.23947pt too wide) detected at line 31
 \OMS/cmsy/m/n/12 8 \OML/cmm/m/it/12 i; j \OMS/cmsy/m/n/12 2 \U/msb/m/n/12 N  \O
 T1/cmr/m/n/12 :  [] \OMS/cmsy/m/n/12 ([]) [] [] []
  []
 
 
-Overfull \hbox (0.4167pt too wide) detected at line 35
+Overfull \hbox (0.4167pt too wide) detected at line 37
 \OMS/cmsy/m/n/12 8 \OML/cmm/m/it/12 i; j \OMS/cmsy/m/n/12 2 \U/msb/m/n/12 N  \O
 T1/cmr/m/n/12 :  [] \OMS/cmsy/m/n/12 ([]) [] [] []
  []
@@ -179,68 +191,114 @@ T1/cmr/m/n/12 :  [] \OMS/cmsy/m/n/12 ([]) [] [] []
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (23.75745pt too wide) detected at line 54
-\OML/cmm/m/it/12 p[] \OT1/cmr/m/n/12 = []
+Overfull \hbox (58.49344pt too wide) detected at line 56
+\OML/cmm/m/it/12 pres\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 d; STC[]\OT1/cmr/m/n/12 
+) = []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 60--64
-
- []
-
-
-Overfull \hbox (15.20615pt too wide) detected at line 70
-\OML/cmm/m/it/12 p[] \OT1/cmr/m/n/12 = []
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 70--72
+Underfull \hbox (badness 10000) in paragraph at lines 64--67
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 73--75
+Underfull \hbox (badness 10000) in paragraph at lines 80--83
 
+ []
+
+
+Overfull \hbox (8.36778pt too wide) detected at line 87
+\OML/cmm/m/it/12 pres\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 d; STC[]\OT1/cmr/m/n/12 
+) = \OMS/cmsy/m/n/12 ^^@\OT1/cmr/m/n/12 1  =[]\OMS/cmsy/m/n/12 )  ^^@\OT1/cmr/m
+/n/12 2 [] [] \OMS/cmsy/m/n/12 ^^T ^^@\OT1/cmr/m/n/12 1 + 1
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 147--151
+Overfull \hbox (1.7131pt too wide) in paragraph at lines 95--98
+\OT1/cmr/m/n/12 Which tells us that we can al-low si-mul-ta-ne-ous course of $\
+OML/cmm/m/it/12 PROG\OT1/cmr/m/n/12 1$ with $\OML/cmm/m/it/12 DrToky$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 112--113
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 147--151
+Overfull \hbox (54.57681pt too wide) detected at line 121
+\OML/cmm/m/it/12 pres\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 d; STC[]\OT1/cmr/m/n/12 
+) = []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 121--123
 
  []
 
-[3] [4] (build/main.aux) ) 
+
+Underfull \hbox (badness 10000) in paragraph at lines 124--126
+
+ []
+
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 130--133
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 141--143
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 144--145
+
+ []
+
+[4]
+Overfull \hbox (0.61098pt too wide) in paragraph at lines 225--229
+[]\OT1/cmr/m/n/12 Let $\OML/cmm/m/it/12 D\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ac[]
+; d[]\OT1/cmr/m/n/12 )$ be the to-tal du-ra-tion of a $\OML/cmm/m/it/12 ac[]$ \
+OT1/cmr/m/n/12 within a time in-ter-val $[] \OMS/cmsy/m/n/12 ^^Z
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 225--229
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 225--229
+
+ []
+
+[5] [6] (build/main.aux) ) 
 Here is how much of TeX's memory you used:
- 2753 strings out of 477908
- 42995 string characters out of 5837077
- 1859330 words of memory out of 5000000
- 22914 multiletter control sequences out of 15000+600000
- 522431 words of font info for 71 fonts, out of 8000000 for 9000
+ 2834 strings out of 477908
+ 44246 string characters out of 5837077
+ 1858330 words of memory out of 5000000
+ 22992 multiletter control sequences out of 15000+600000
+ 522072 words of font info for 70 fonts, out of 8000000 for 9000
  81 hyphenation exceptions out of 8191
  56i,12n,62p,221b,210s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/abega/.texlive2022/texmf-var/fonts/pk/ljfour/
 jknappen/ec/tcrm1200.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmbxti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></
-usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/symbols/msbm10.pfb>
-Output written on build/main.pdf (4 pages, 155224 bytes).
+/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+mi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/symbols/msbm10.pfb>
+Output written on build/main.pdf (6 pages, 156907 bytes).
 PDF statistics:
- 92 PDF objects out of 1000 (max. 8388607)
- 56 compressed objects within 1 object stream
+ 93 PDF objects out of 1000 (max. 8388607)
+ 57 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

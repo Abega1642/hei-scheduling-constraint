@@ -4,10 +4,12 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+\usepackage{amsthm}
 \newtheorem{theorem}{Constraint}
-\author{Abegà Razafindratelo}
 
+\author{Abegà Razafindratelo}
 \title{HEI Scheduling constraints problems}
+
 \begin{document}
 \maketitle
 \section*{Notations}
@@ -43,29 +45,78 @@
 \begin{theorem}
 A teacher can't teach two or more different groups at the same time for a same course if it is face-to-face session but can if it is a video conference session.
 \end{theorem}
-Let $p_{d, STC_{t,c}} \in \lbrace -1;1 \rbrace  $,be a an indicator constant.
+Let $pres(d, STC_{t,c}) \in \lbrace -1;1 \rbrace  $,be a an indicator constant.
 	
 	$$
-	p_{d, STC_{t,c}} = 
+	pres(d, STC_{t,c}) = 
 	\begin{cases}
-		\hspace{0.3cm} 1 \text{ , \quad if all $ac_i$ related to  $STC_{t,c}$ are presentials at a given $d$ day} \\
-		-1 \text{ , \quad if all $ac_i$ related to  $STC_{t,c}$ are online at a given $d$ day}
+		\hspace{0.3cm} 1 \text{ , if the course related to  $STC_{t,c}$ is presential at a given $d$ day} \\
+		-1 \text{ , otherwise}
 	\end{cases} 
 	$$
 $
 \forall \ s \in S,\ \forall \ d \in D, \ \forall \ t \in T, \ \forall \ c \in C :
 $
 \begin{equation}
-2p_{d, STC_{t,c}} \cdot \left( \sum_{r\in R}\left(\sum_{ac_{i} \in STC_{t,c}}{o_{ac_{i}, d, r, s}}\right)\right) \leq 3p_{STC_{t,c}} - 1
+2 \cdot pres(d, STC_{t,c}) \cdot \sum_{r\in R}\left(\sum_{ac_{i} \in STC_{t,c}}{o_{ac_{i}, d, r, s}}\right)\leq pres(d, STC_{t,c}) + 1
 \end{equation}
-\\ \\
-\textbf{\textit{\underline{Otherwise :}}}
-if $p_{d, STC_{t,c}}$ is the binary variable such as :
+
+\vspace{1cm}\textbf{\underline{Example:}}\vspace{0.3cm} \\ 
+Let's take an example for course $c = PROG1$ and teacher $t = Dr Toky$ and all groups $K1$, $K2$, $K3$, $K4$, $K5$. \\ \\
+We define the set $ac_i$ as follow :
+$$
+\begin{cases}
+	ac_1 = \left(PROG1, Dr Toky, K1\right) \\
+	ac_2 = \left(PROG1, Dr Toky, K2\right) \\
+	ac_3 = \left(PROG1, Dr Toky, K3\right) \\
+	ac_4 = \left(PROG1, Dr Toky, K4\right) \\
+	ac_5 = \left(PROG1, Dr Toky, K5\right) \\
+\end{cases}
+$$
+
+\vspace{0.5cm}Thus, the set $STC_{PROG1, DrToky}$ is :
 \[
-	p_{d, STC_{t,c}} = 
+STC_{PROG1, DrToky} = \lbrace ac_1, ac_2, ac_3, ac_4, ac_5 \rbrace
+\]
+Which means here that all elements of this $STC_{PROG1, DrToky}$ has the same teacher and same course.\\
+Now, if we say that for a $d$ day, the $PROG1$ course will be online, we will have : \\ 
+
+\[
+pres(d, STC_{DrToky,PROG1}) = - 1 \quad \Longrightarrow \quad
+-2 \sum_{r\in R}\left(\sum_{ac_{i} \in STC_{t,c}}{o_{ac_{i}, d, r, s}}\right)\leq -1 + 1
+\]
+
+\[
+\Longleftrightarrow \quad -2 \cdot \sum_{r\in R}\left(\sum_{ac_{i} \in STC_{t,c}}{o_{ac_{i}, d, r, s}}\right)\leq 0
+\]
+
+\[
+\Longleftrightarrow \quad \sum_{r\in R}\left(\sum_{ac_{i} \in STC_{t,c}}{o_{ac_{i}, d, r, s}}\right)\geq 0
+\]
+Which tells us that we can allow simultaneous course of $PROG1$ with $DrToky$ for those groups. \vspace{0.5cm} \\
+Now, if the course is presential :
+\[
+pres(d, STC_{DrToky,PROG1}) = 1 \quad \Longrightarrow \quad
+2 \cdot \sum_{r\in R}\left(\sum_{ac_{i} \in STC_{t,c}}{o_{ac_{i}, d, r, s}}\right)\leq 1 + 1
+\]
+
+\[
+\Longleftrightarrow \quad 2 \cdot \sum_{r\in R}\left(\sum_{ac_{i} \in STC_{t,c}}{o_{ac_{i}, d, r, s}}\right)\leq 2
+\]
+
+\[
+\Longleftrightarrow \quad \sum_{r\in R}\left(\sum_{ac_{i} \in STC_{t,c}}{o_{ac_{i}, d, r, s}}\right)\leq 1
+\]
+which tells us that only one session of this course is allowed.
+
+\vspace{1cm}\textbf{\underline{SECOND REFORMULATION} :} \\
+
+\vspace{0.5cm}If $pres(d, STC_{t,c})$ is the binary variable such as :
+\[
+	pres(d, STC_{t,c}) = 
 	\begin{cases}
-		\hspace{0.3cm} 1 \text{ , \quad if all $ac_i$ related to $STC_{t,c}$ are presential ata given $d$ day} \\
-		\hspace{0.3cm}0 \text{ , \quad if all $ac_i$ related to  $STC_{t,c}$ are online at a given $d$ day}
+		\hspace{0.3cm} 1 \text{ , if the course related to $STC_{t,c}$ is presential ata given $d$ day} \\
+		\hspace{0.3cm}0 \text{ , otherwise}
 	\end{cases} 
 \]	
 which marks whether all awarded courses related to $STC_{t,c}$ are presentials or not. \\
@@ -73,8 +124,35 @@ which marks whether all awarded courses related to $STC_{t,c}$ are presentials o
 Let $M \in \mathbb{N^{*}}$ be a majoration constant. \\ \\
 Therefore :
 \begin{equation}
-\sum_{r\in R}\left(\sum_{ac_{i} \in STC_{t,c}}{o_{ac_{i}, d, r, s}}\right) \leq 1 + M(1 - p_{STC_{t,c}})
+\sum_{r\in R}\left(\sum_{ac_{i} \in STC_{t,c}}{o_{ac_{i}, d, r, s}}\right) \leq 1 + M(1 - pres(d, STC_{t,c}))
 \end{equation}
+
+\vspace{1cm}\textbf{\underline{Example:}}\vspace{0.3cm} \\ 
+Now, let's take the previous example again. \\
+With this second inequality, if the course is presential, we have : \\
+\[
+pres(d, STC_{t,c}) = 1 \quad \Longrightarrow \quad 
+\sum_{r\in R}\left(\sum_{ac_{i} \in STC_{t,c}}{o_{ac_{i}, d, r, s}}\right) \leq 1 + M(1 - 1)
+\]
+
+\[
+\Longleftrightarrow \quad
+\sum_{r\in R}\left(\sum_{ac_{i} \in STC_{t,c}}{o_{ac_{i}, d, r, s}}\right) \leq 1
+\]
+Which tells us again that only one session of that course is allowed at that given time slot.\\
+
+\vspace{0.5cm} Now, if the course is online : \\
+\[
+pres(d, STC_{t,c}) = 0 \quad \Longrightarrow \quad 
+\sum_{r\in R}\left(\sum_{ac_{i} \in STC_{t,c}}{o_{ac_{i}, d, r, s}}\right) \leq 1 + M(1 - 0)
+\]
+
+\[
+\Longleftrightarrow \quad
+\sum_{r\in R}\left(\sum_{ac_{i} \in STC_{t,c}}{o_{ac_{i}, d, r, s}}\right) \leq 1 + M
+\]
+
+which means that multiple session of that course (depending on $M$) is allowed
 
 \begin{theorem}
 A teacher cannot simultaneously teach two or more different courses.
@@ -135,7 +213,7 @@ Suitable room for every course session.
 \end{itemize}
 
 $
-\forall ac_i \in AC, \ i \in I, \forall \ r \in R, \ \forall \ s \in S, \forall \ d \in D 
+\forall ac_i \in AC, \forall \ r \in R, \ \forall \ s \in S, \forall \ d \in D 
 $
 \begin{equation}
 o_{ac_i, d, r, s}rc_r \geq  s_{g_{ac_{i}}}
