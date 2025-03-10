@@ -15,28 +15,62 @@
 \section*{Notations}
 \begin{itemize}
 	
-	\item $G$ denotes the set of all group $g$; $T$ denotes the set of all teacher, $C$ denotes the set of all course.
+	\item $G$ denotes the set of all group $g$.
+	
+	\item $T$ denotes the set of all teacher $t$.
+	
+	\item $C$ denotes the set of all course $c$.
+	
+	\item $R$ the set of all room $r$.
 	
 	\item All element of the set of all awarded courses $AC$ will be indexed. In other words :
 	$$
 	 ac_{i} \in AC,\ i \in \mathbb{N}
 	$$
 	
-	\item Let $t_{ac_{i}}$ and $c_{ac_{i}}$ be the corresponding teacher and the corresponding course resp. to  $ac_{i}$.
+	\item Let $t(ac_{i})$ and $c(ac_{i})$ be the corresponding teacher and the corresponding course resp. to  $ac_{i}$.
 	
 	\item Let $STC_{t,c} \subset AC$  be the set of all awarded course which has same teacher and course (Same Course and Teacher):
 	$$
-	\forall \ i, j \in \mathbb{N} \ : \ \left(ac_{i}, ac_{j} \in  STC_{t,c}\right)                            \Longleftrightarrow \left(t_{ac_{i}} = t_{ac_{j}}  = t \right) \text{ and } 
-	\left(c_{ac_{i}} = c_{ac_{j}}  =  c \right)
+	\forall \ i, j \in \mathbb{N} \ : \ \left(ac_{i}, ac_{j} \in  STC_{t,c}\right)                            \Longleftrightarrow \left[t(ac_{i}) = t(ac_{j})  = t \right] \text{ and } 
+	\left[c(ac_{i}) = c(ac_{j})  =  c \right]
 	$$ 
+	\underline{Example} : \\
+	
+	$t = DrToky$, $c = PROG1$, and $G = \lbrace K1, K2, K3 \rbrace$. So, we have \\
+	$
+		STC_{DrToky, PROG1} = \lbrace a_1, a_2 \rbrace	\\
+	$ 
+	\[
+	\text{where :}
+		\begin{cases}
+			ac_1 = \left(PROG1, DrToky, K1\right) \\
+			ac_2 = \left(PROG1, DrToky, K2\right) \\
+			ac_3 = \left(PROG1, DrToky, K3\right)
+		\end{cases}
+	\]
 	
 	\item Let $STDC_{t} \subset AC$ be the set of all awarded course which has same teacher but different course (Same Teacher but Different Course) :
 	$$
-	\forall \ i, j \in \mathbb{N} \ : \ \left(ac_{i}, ac_{j} \in  STDC_{t}\right)                            \Longleftrightarrow \left(t_{ac_{i}} = t_{ac_{j}}  = t \right) \text{ and } 
-	\left(c_{ac_{i}} \neq c_{ac_{j}} \right)
+	\forall \ i, j \in \mathbb{N} \ : \ \left(ac_{i}, ac_{j} \in  STDC_{t}\right)                            \Longleftrightarrow \left[t(ac_{i}) = t(ac_{j})  = t \right] \text{ and } 
+	\left[c(ac_{i}) \neq c(ac_{j}) \right]
 	$$ 
+	\underline{Example} : \\
+	$t = DrToky$, and $G = \lbrace K1, K2, K3 \rbrace$. So, we have \\
+	$
+		STDC_{DrToky} = \lbrace a_1, a_2, a_3, a_4 \rbrace	\\
+	$ 
+	\[
+	\text{where :}
+		\begin{cases}
+			ac_1 = \left(PROG1, Dr Toky, K1\right) \\
+			ac_2 = \left(WEB1, Dr Toky, K1\right) \\
+			ac_3 = \left(DONNEES1, DrToky, K2\right)\\,
+			ac_4 = \left(PROG2, DrToky, K3\right)
+		\end{cases}
+	\]
 	
-	\item Let $AC_{g} \subset AC$, the set of all awarded course related to a group $g$.
+	\item Let $AC_{g} \subset AC$, the set of all awarded course related to a group $g$. Which means that only $ac_i$ that $g$ as its group will be in the set $AC_{g}$.
 
 \end{itemize}
 \newpage
@@ -45,20 +79,21 @@
 \begin{theorem}
 A teacher can't teach two or more different groups at the same time for a same course if it is face-to-face session but can if it is a video conference session.
 \end{theorem}
-Let $pres(d, STC_{t,c}) \in \lbrace -1;1 \rbrace  $,be a an indicator constant.
-	
-	$$
+
+
+\vspace{0.5cm}Let $pres(d, STC_{t,c})$ be the binary variable such as :
+\[
 	pres(d, STC_{t,c}) = 
 	\begin{cases}
-		\hspace{0.3cm} 1 \text{ , if the course related to  $STC_{t,c}$ is presential at a given $d$ day} \\
-		-1 \text{ , otherwise}
+		\hspace{0.3cm} 1 \text{ , if the course related to $STC_{t,c}$ is presential at a given $d$ day} \\
+		\hspace{0.3cm}0 \text{ , otherwise}
 	\end{cases} 
-	$$
-$
-\forall \ s \in S,\ \forall \ d \in D, \ \forall \ t \in T, \ \forall \ c \in C :
-$
+\]	
+
+Let $M \in \mathbb{N^{*}}$ be a constant limiting the number of allowed courses. \\ \\
+Therefore :
 \begin{equation}
-2 \cdot pres(d, STC_{t,c}) \cdot \sum_{r\in R}\left(\sum_{ac_{i} \in STC_{t,c}}{o_{ac_{i}, d, r, s}}\right)\leq pres(d, STC_{t,c}) + 1
+\sum_{r\in R}\left(\sum_{ac_{i} \in STC_{t,c}}{o_{ac_{i}, d, r, s}}\right) \leq 1 + M(1 - pres(d, STC_{t,c}))
 \end{equation}
 
 \vspace{1cm}\textbf{\underline{Example:}}\vspace{0.3cm} \\ 
@@ -79,57 +114,8 @@ $$
 STC_{PROG1, DrToky} = \lbrace ac_1, ac_2, ac_3, ac_4, ac_5 \rbrace
 \]
 Which means here that all elements of this $STC_{PROG1, DrToky}$ has the same teacher and same course.\\
-Now, if we say that for a $d$ day, the $PROG1$ course will be online, we will have : \\ 
+Now, if we say that for a $d$ day, the $PROG1$ course will be presential, we will have : \\ 
 
-\[
-pres(d, STC_{DrToky,PROG1}) = - 1 \quad \Longrightarrow \quad
--2 \sum_{r\in R}\left(\sum_{ac_{i} \in STC_{t,c}}{o_{ac_{i}, d, r, s}}\right)\leq -1 + 1
-\]
-
-\[
-\Longleftrightarrow \quad -2 \cdot \sum_{r\in R}\left(\sum_{ac_{i} \in STC_{t,c}}{o_{ac_{i}, d, r, s}}\right)\leq 0
-\]
-
-\[
-\Longleftrightarrow \quad \sum_{r\in R}\left(\sum_{ac_{i} \in STC_{t,c}}{o_{ac_{i}, d, r, s}}\right)\geq 0
-\]
-Which tells us that we can allow simultaneous course of $PROG1$ with $DrToky$ for those groups. \vspace{0.5cm} \\
-Now, if the course is presential :
-\[
-pres(d, STC_{DrToky,PROG1}) = 1 \quad \Longrightarrow \quad
-2 \cdot \sum_{r\in R}\left(\sum_{ac_{i} \in STC_{t,c}}{o_{ac_{i}, d, r, s}}\right)\leq 1 + 1
-\]
-
-\[
-\Longleftrightarrow \quad 2 \cdot \sum_{r\in R}\left(\sum_{ac_{i} \in STC_{t,c}}{o_{ac_{i}, d, r, s}}\right)\leq 2
-\]
-
-\[
-\Longleftrightarrow \quad \sum_{r\in R}\left(\sum_{ac_{i} \in STC_{t,c}}{o_{ac_{i}, d, r, s}}\right)\leq 1
-\]
-which tells us that only one session of this course is allowed.
-
-\vspace{1cm}\textbf{\underline{SECOND REFORMULATION} :} \\
-
-\vspace{0.5cm}If $pres(d, STC_{t,c})$ is the binary variable such as :
-\[
-	pres(d, STC_{t,c}) = 
-	\begin{cases}
-		\hspace{0.3cm} 1 \text{ , if the course related to $STC_{t,c}$ is presential ata given $d$ day} \\
-		\hspace{0.3cm}0 \text{ , otherwise}
-	\end{cases} 
-\]	
-which marks whether all awarded courses related to $STC_{t,c}$ are presentials or not. \\
-
-Let $M \in \mathbb{N^{*}}$ be a majoration constant. \\ \\
-Therefore :
-\begin{equation}
-\sum_{r\in R}\left(\sum_{ac_{i} \in STC_{t,c}}{o_{ac_{i}, d, r, s}}\right) \leq 1 + M(1 - pres(d, STC_{t,c}))
-\end{equation}
-
-\vspace{1cm}\textbf{\underline{Example:}}\vspace{0.3cm} \\ 
-Now, let's take the previous example again. \\
-With this second inequality, if the course is presential, we have : \\
 \[
 pres(d, STC_{t,c}) = 1 \quad \Longrightarrow \quad 
 \sum_{r\in R}\left(\sum_{ac_{i} \in STC_{t,c}}{o_{ac_{i}, d, r, s}}\right) \leq 1 + M(1 - 1)
@@ -139,7 +125,7 @@ pres(d, STC_{t,c}) = 1 \quad \Longrightarrow \quad
 \Longleftrightarrow \quad
 \sum_{r\in R}\left(\sum_{ac_{i} \in STC_{t,c}}{o_{ac_{i}, d, r, s}}\right) \leq 1
 \]
-Which tells us again that only one session of that course is allowed at that given time slot.\\
+Which tells us that only one session of that course is allowed at that given time slot.\\
 
 \vspace{0.5cm} Now, if the course is online : \\
 \[
@@ -152,7 +138,9 @@ pres(d, STC_{t,c}) = 0 \quad \Longrightarrow \quad
 \sum_{r\in R}\left(\sum_{ac_{i} \in STC_{t,c}}{o_{ac_{i}, d, r, s}}\right) \leq 1 + M
 \]
 
-which means that multiple session of that course (depending on $M$) is allowed
+which means that multiple session of that course (depending on $M$) is allowed\vspace{1cm}
+
+
 
 \begin{theorem}
 A teacher cannot simultaneously teach two or more different courses.
@@ -164,6 +152,31 @@ $
 \sum_{r\in R}\left(\sum_{ac_i \in STDC_{t}}{o_{ac_{i}, d, r, s}}\right) \leq 1
 \end{equation}
 
+\vspace{1cm}\textbf{\underline{Example:}}\vspace{0.3cm} \\ 
+Let's take an example for courses $c_1 = PROG1$, $c_2 = WEB1$ and teacher $t = Dr Toky$ and all groups $K1$, $K2$. \\ \\
+Now, the statement is that $DrToky$ cannot teach $WEB1$ and $PROG1$ at the same time. So, we have to make sure that \textbf{event if we have different courses}, $DrToky$ don't teach both of those courses at a given slot $s$.\\ 
+\[
+\text{Let : }
+\begin{cases}
+	ac_1 = (PROG1, DrToky, K1) \\
+	ac_2 = (WEB1, DrToky, K2)
+\end{cases}
+\]
+It is clear that $ac_1$, $ac_2$ $\in STDC_{DrToky}$ and we can only allow session for $ac_1$ \textbf{or} for $ac_2$. \\
+It is abvious that if the awarded courses don't have the same teacher but have the same course, we can allow both of them \vspace{1cm}.
+
+
+
+\begin{theorem}
+Only one session is allowed in a room at a given time slot.
+\end{theorem}
+$
+\forall \ r \in R, \ \forall	\ s \in S, \ \forall \ d \in D :
+$
+\begin{equation}
+\sum_{ac_i \in AC}{o_{ac_{i}, d, r, s}} \leq 1
+\end{equation}
+
 \begin{theorem}
 A group cannot simultaneously have two or more different course sessions.
 \end{theorem}
@@ -173,6 +186,22 @@ $
 \begin{equation}
 \sum_{r\in R}\left(\sum_{ac_i \in AC_g}{o_{ac_{i}, d, r, s}}\right) \leq 1
 \end{equation}
+
+\vspace{1cm}\textbf{\underline{Example:}}\vspace{0.3cm} \\ 
+Let's take for example the group $J1$. This group has for example the $MGT2$, $PROG3$ courses.
+
+\[
+	\text{Let : }
+	\begin{cases}
+	ac_1 = (MGT2, DrLou, J1) \\
+	ac_2 = (PROG3, MrRyan, J1)
+	\end{cases}
+\]
+
+It is abvious that this doesn't concern any other group and we can't allow $J1$ to have $ac_1$ and $ac_2$ at the same time.\vspace{1cm}
+
+
+
 \begin{theorem}
 A group should have 2 hours of break per day.
 \end{theorem}
@@ -182,15 +211,22 @@ $
 \begin{equation}
 \sum_{ac_{i} \in AC_{g}}\left(\sum_{r\in R}{\sum_{s \in S}{o_{ac_{i}, d, r, s}}}\right) \leq 3
 \end{equation}
+
+It is clear that this does not concern at all the other groups apart from the given group $g$.\vspace{1cm}
+
+
+
 \begin{theorem}
 Only one session per course in a day.
 \end{theorem}
 $
-\forall \ ac_i \in AC,\ i \in I, \ \forall \ d \in D :
+\forall \ ac_i \in AC, \ \forall \ d \in D :
 $
 \begin{equation}
 \left(\sum_{r\in R}{\sum_{s \in S}{o_{ac_{i}, d, r, s}}}\right) \leq 1
 \end{equation}
+
+\vspace{1cm}
 \begin{theorem}
 Give one day without the same course after a session of this course.
 \end{theorem}
@@ -200,7 +236,12 @@ $
 \begin{equation}
 \left(\sum_{r\in R}{\sum_{s \in S}{o_{ac_{i}, d + 1_d, r, s}}}\right) + \left(\sum_{r\in R}{\sum_{s \in S}{o_{ac_{i}, d, r, s}}}\right) \leq 1
 \end{equation}
-where $1_d$ is the unit of day.
+where $1_d$ is the unit of day. So, $d + 1_d$ means the next day of $d$\\
+
+\vspace{0.25cm}This inequality states that the number of occurences of an awarded course in day $d$ and the following day $d + 1_d$ should be at most one. Which means that whether the awarded course is scheduled the $d$ day or it is scheduled in the next day.
+\vspace{1cm}
+
+
 
 \begin{theorem}
 Suitable room for every course session.
@@ -208,27 +249,44 @@ Suitable room for every course session.
 
 \begin{itemize}
 	\item Let $g_{ac_{i}}$ be the corresponding group to a ${ac_{i}}$.
-	\item Let $s_{g_{ac_{i}}}$ be the group size of a group $g_{ac_{i}}$.
-	\item Let $rc_r$ be the room capacity of a room $r$.
+	\item Let $size(g_{ac_{i}})$ be the group size of a group $g_{ac_{i}}$.
+	\item Let $capacity(r)$ be the room capacity of a room $r$.
 \end{itemize}
 
 $
 \forall ac_i \in AC, \forall \ r \in R, \ \forall \ s \in S, \forall \ d \in D 
 $
 \begin{equation}
-o_{ac_i, d, r, s}rc_r \geq  s_{g_{ac_{i}}}
-\end{equation}
+o_{ac_i, d, r, s} \cdot capacity(r) \geq  size(g_{ac_{i}})
+\end{equation} \vspace{0.6cm}
 
 \begin{theorem}
 Finish the total hour of every course.
 \end{theorem}
-Let $D(ac_i, d_q)$ be the total duration of a $ac_i$ within a time interval $\left[d_0, d_q\right] \subset D, \ d_0 \leq d_q$. \\ \\
+Let $D(ac_i,d_{start}, d_{end})$ be the needed total duration in hour of a $ac_i$ within a time interval $\left[d_{start}, d_{end}\right] \subset D, \ d_{start} \leq d_{end}$. \\ \\
 $
-\forall \ ac_{i} \in AC, \ i \in I :
+\forall \ ac_{i} \in AC:
 $ \\
 \begin{equation}
-\sum_{d = d_0 }^{d_q}\sum_{r \in R}\sum_{s \in S} {o_{ac_{i}, d, r, s}} = D(ac_{i}, d_q)
+2 \cdot \left(\sum_{d = d_{start} }^{d_{end}}\sum_{r \in R}\sum_{s \in S} {o_{ac_{i}, d, r, s}}\right) = D(ac_{i}, d_{end})
 \end{equation}
+
+\vspace{1cm}\textbf{\underline{Example:}}\vspace{0.3cm} \\ 
+$ac_1 = (PROG1, DrToky, K1)$, $d_{start}$ = 10 march 2025 and $d_{end}$ = 17 march 2025. \\
+
+If we need to have 10 hours of $ac_1$, we have then : $D(ac_1, d_{end}) = 10$. \\
+
+Therefore, we should have :
+
+\[
+2 \cdot \left(\sum_{d = d_{start} }^{d_{end}}\sum_{r \in R}\sum_{s \in S} {o_{ac_{1}, d, r, s}}\right) = 10)
+\]
+
+\[
+\Longleftrightarrow \quad 
+\sum_{d = d_{start} }^{d_{end}}\sum_{r \in R}\sum_{s \in S} {o_{ac_{1}, d, r, s}} = 5)
+\]
+Which gives us that we should have 5 session of $ac_1$ during the interval of 10 march and 17 march to get those required 10 hours.
 
 
 \end{document}
